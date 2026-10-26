@@ -9,12 +9,12 @@ export const site = {
     district: 'Centro',
     city: 'Salto',
     state: 'SP',
-    zip: '13321-220',
+    zip: '13320-240',
   },
-  phone: '(11) 9.3838-4848',
-  whatsapp: 'https://wa.me/5511938384848',
+  phone: '(11) 9.1317-1755',
+  whatsapp: 'https://wa.me/5511913171755',
   email: 'contato@agnolettocontabil.com.br',
-  instagram: 'agnolettocontabil',
+  instagram: 'agnoletto.contabil',
   hours: 'Seg-Sex 9h-17:30',
 } as const;
 

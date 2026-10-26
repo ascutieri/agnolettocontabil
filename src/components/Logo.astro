@@ -1,16 +1,21 @@
 ---
-// Placeholder tipográfico. Trocar pelo SVG oficial do logotipo quando for fornecido.
+import { Image } from 'astro:assets';
+import logoColor from '../assets/logo-color.png';
+import logoWhite from '../assets/logo-white.png';
+
 interface Props {
 	class?: string;
 	/** "color" para fundos claros, "light" para fundos escuros */
 	variant?: 'color' | 'light';
+	width?: number;
 }
-const { class: className, variant = 'color' } = Astro.props;
-const main = variant === 'light' ? 'text-white' : 'text-brand-700';
-const sub = variant === 'light' ? 'text-ink-300' : 'text-ink-600';
+const { class: className, variant = 'color', width = 200 } = Astro.props;
 ---
 
-<span class:list={['inline-flex flex-col leading-none', className]} aria-label="Agnoletto Contabilidade">
-	<span class={`font-serif text-[1.6em] font-semibold tracking-tight ${main}`}>Agnoletto</span>
-	<span class={`mt-[0.15em] text-[0.7em] font-medium tracking-[0.35em] uppercase ${sub}`}>contabil</span>
-</span>
+<Image
+	src={variant === 'light' ? logoWhite : logoColor}
+	alt="Agnoletto Contabilidade"
+	width={width}
+	class={className}
+	loading="eager"
+/>

@@ -1,13 +1,4 @@
----
-import { mapQuery, site } from '../data/site';
-
-const { address } = site;
-const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`;
-const igUrl = `https://instagram.com/${site.instagram}`;
-const label = 'text-xs font-semibold tracking-widest text-gold-700 uppercase';
-const link = 'font-medium text-brand-700 underline-offset-4 hover:underline';
----
-
+<!-- Faixa "Vem aí" da home -->
 <section class="bg-sand">
 	<div class="mx-auto max-w-3xl px-5 py-16 text-center sm:py-24">
 		<p class="inline-block rounded-full bg-gold-100 px-4 py-1 text-xs font-semibold tracking-widest text-gold-700 uppercase">
@@ -19,53 +10,5 @@ const link = 'font-medium text-brand-700 underline-offset-4 hover:underline';
 		<p class="mx-auto mt-6 max-w-xl text-lg text-ink-600">
 			Enquanto isso, fale com a gente pelos canais abaixo.
 		</p>
-	</div>
-</section>
-
-<section class="mx-auto max-w-6xl px-5 py-14 sm:py-20">
-	<div class="grid gap-10 lg:grid-cols-2">
-		<div>
-			<h2 class="text-2xl font-semibold sm:text-3xl">{site.name}</h2>
-			<dl class="mt-8 space-y-6">
-				<div>
-					<dt class={label}>Endereço</dt>
-					<dd class="mt-1">
-						<address class="not-italic">
-							{address.street} - {address.building}<br />
-							{address.district}, {address.city} / {address.state}<br />
-							CEP {address.zip}
-						</address>
-					</dd>
-				</div>
-				<div>
-					<dt class={label}>Telefone (WhatsApp)</dt>
-					<dd class="mt-1">
-						<a href={site.whatsapp} target="_blank" rel="noopener" class={link}>{site.phone}</a>
-					</dd>
-				</div>
-				<div>
-					<dt class={label}>E-mail</dt>
-					<dd class="mt-1"><a href={`mailto:${site.email}`} class={link}>{site.email}</a></dd>
-				</div>
-				<div>
-					<dt class={label}>Instagram</dt>
-					<dd class="mt-1"><a href={igUrl} target="_blank" rel="noopener" class={link}>@{site.instagram}</a></dd>
-				</div>
-				<div>
-					<dt class={label}>Horário de atendimento</dt>
-					<dd class="mt-1">{site.hours}</dd>
-				</div>
-			</dl>
-		</div>
-
-		<div class="overflow-hidden rounded-2xl border border-ink-200 bg-surface shadow-sm">
-			<iframe
-				title={`Mapa: ${site.name}`}
-				src={mapSrc}
-				class="h-80 w-full lg:h-full lg:min-h-96"
-				loading="lazy"
-				referrerpolicy="no-referrer-when-downgrade"
-				allowfullscreen></iframe>
-		</div>
 	</div>
 </section>
