@@ -1,0 +1,16 @@
+---
+// Placeholder tipográfico. Trocar pelo SVG oficial do logotipo quando for fornecido.
+interface Props {
+	class?: string;
+	/** "color" para fundos claros, "light" para fundos escuros */
+	variant?: 'color' | 'light';
+}
+const { class: className, variant = 'color' } = Astro.props;
+const main = variant === 'light' ? 'text-white' : 'text-brand-700';
+const sub = variant === 'light' ? 'text-ink-300' : 'text-ink-600';
+---
+
+<span class:list={['inline-flex flex-col leading-none', className]} aria-label="Agnoletto Contabilidade">
+	<span class={`font-serif text-[1.6em] font-semibold tracking-tight ${main}`}>Agnoletto</span>
+	<span class={`mt-[0.15em] text-[0.7em] font-medium tracking-[0.35em] uppercase ${sub}`}>contabil</span>
+</span>

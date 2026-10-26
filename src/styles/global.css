@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/fraunces";
+
+/*
+ * Tema Agnoletto Contabilidade
+ * Cores-base do logotipo: #990000 (Agnoletto) e #666666 (contabil).
+ *
+ *  brand  - vinho/bordô, escala centrada em #990000 (700)
+ *  ink    - cinzas quentes, escala com #666666 em 600
+ *  gold   - dourado envelhecido, cor complementar para destaques
+ */
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces Variable", ui-serif, Georgia, serif;
+
+  --color-brand-50: #fdf3f3;
+  --color-brand-100: #fae3e3;
+  --color-brand-200: #f5c4c4;
+  --color-brand-300: #ec9595;
+  --color-brand-400: #de5c5c;
+  --color-brand-500: #c42b2b;
+  --color-brand-600: #aa1111;
+  --color-brand-700: #990000;
+  --color-brand-800: #7a0000;
+  --color-brand-900: #5c0a0a;
+  --color-brand-950: #2e0505;
+
+  --color-ink-50: #f7f5f3;
+  --color-ink-100: #edeae7;
+  --color-ink-200: #dcd7d2;
+  --color-ink-300: #bfb9b3;
+  --color-ink-400: #99938d;
+  --color-ink-500: #7b7570;
+  --color-ink-600: #666666;
+  --color-ink-700: #4f4b48;
+  --color-ink-800: #363331;
+  --color-ink-900: #231f1e;
+  --color-ink-950: #151211;
+
+  --color-gold-100: #f6ecd2;
+  --color-gold-300: #e4cb8f;
+  --color-gold-500: #c19a49;
+  --color-gold-700: #8a6a28;
+
+  /* Superfícies */
+  --color-paper: #fbf8f4; /* fundo da página */
+  --color-surface: #ffffff; /* cartões */
+  --color-sand: #f3ece3; /* faixas alternadas */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper font-sans text-ink-700 antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-brand-900;
+  }
+  ::selection {
+    @apply bg-gold-300 text-brand-950;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-700;
+  }
+}
+
+/* Typography plugin: texto longo (notícias) nas cores do tema */
+.prose {
+  --tw-prose-body: var(--color-ink-700);
+  --tw-prose-headings: var(--color-brand-900);
+  --tw-prose-lead: var(--color-ink-600);
+  --tw-prose-links: var(--color-brand-700);
+  --tw-prose-bold: var(--color-ink-900);
+  --tw-prose-counters: var(--color-ink-500);
+  --tw-prose-bullets: var(--color-gold-500);
+  --tw-prose-hr: var(--color-ink-200);
+  --tw-prose-quotes: var(--color-brand-900);
+  --tw-prose-quote-borders: var(--color-gold-500);
+  --tw-prose-captions: var(--color-ink-500);
+  --tw-prose-code: var(--color-brand-800);
+  --tw-prose-pre-code: var(--color-ink-100);
+  --tw-prose-pre-bg: var(--color-ink-900);
+  --tw-prose-th-borders: var(--color-ink-300);
+  --tw-prose-td-borders: var(--color-ink-200);
+}
+.prose :where(h1, h2, h3, h4) {
+  font-family: var(--font-serif);
+}
