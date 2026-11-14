@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/Logo.astro';
+import { site } from '../data/site';
+
+const btn =
+	'flex w-full items-center justify-center gap-3 rounded-full px-5 py-3.5 text-sm font-semibold shadow-sm transition-colors';
+const primary = `${btn} bg-brand-700 text-white hover:bg-brand-800`;
+const secondary = `${btn} border border-ink-200 bg-surface text-brand-700 hover:border-brand-200 hover:bg-brand-50`;
+const icon = 'size-5 shrink-0';
+---
+
+<BaseLayout bare title="Cartão de visita" description={`Cartão de visita digital da ${site.name}, em Salto/SP.`}>
+	<div class="flex min-h-screen items-center justify-center px-4 py-10">
+		<div class="w-full max-w-sm overflow-hidden rounded-3xl border border-ink-200 bg-surface shadow-lg">
+			<div class="h-1.5 bg-gold-500"></div>
+			<div class="px-6 pt-10 pb-8 sm:px-8">
+				<h1 class="sr-only">{site.name}</h1>
+				<Logo width={280} class="mx-auto h-auto w-56" />
+				<p class="mt-4 text-center text-sm text-ink-600">
+					{site.address.city} / {site.address.state} · {site.hours}
+				</p>
+
+				<ul class="mt-8 space-y-3">
+					<li>
+						<a href={site.whatsapp} target="_blank" rel="noopener" class={primary}>
+							<svg viewBox="0 0 24 24" class={`${icon} fill-current`} aria-hidden="true">
+								<path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.93L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.33-2 1.4-.5.07-1.13.1-1.8-.11a16 16 0 0 1-1.63-.6c-2.87-1.24-4.74-4.13-4.88-4.32-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08 1-2.37.26-.28.56-.35.75-.35h.54c.17 0 .4-.06.62.48.24.56.8 1.95.87 2.09.07.14.12.3.02.49-.1.19-.14.3-.28.46l-.42.5c-.14.14-.28.3-.12.57.16.28.7 1.16 1.5 1.88 1.03.92 1.9 1.2 2.17 1.34.28.14.44.12.6-.07.16-.19.7-.82.88-1.1.19-.28.37-.23.62-.14.26.1 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.68-.18 1.37Z" />
+							</svg>
+							Conversar pelo WhatsApp
+						</a>
+					</li>
+					<li>
+						<a href="/agnoletto-contabilidade.vcf" download="agnoletto-contabilidade.vcf" class={secondary}>
+							<svg viewBox="0 0 24 24" class={icon} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<circle cx="9" cy="8" r="3.5" />
+								<path d="M2.5 20a6.5 6.5 0 0 1 13 0M19 8v6M16 11h6" />
+							</svg>
+							Salvar contato
+						</a>
+					</li>
+					<li>
+						<a href={`mailto:${site.email}`} class={secondary}>
+							<svg viewBox="0 0 24 24" class={icon} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<rect x="3" y="5" width="18" height="14" rx="2" />
+								<path d="m3.5 6.5 8.5 6.5 8.5-6.5" />
+							</svg>
+							Enviar e-mail
+						</a>
+					</li>
+					<li>
+						<a href="/" class={secondary}>
+							<svg viewBox="0 0 24 24" class={icon} fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<circle cx="12" cy="12" r="9" />
+								<path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+							</svg>
+							Acessar site
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</BaseLayout>

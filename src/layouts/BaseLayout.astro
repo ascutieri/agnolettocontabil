@@ -7,8 +7,10 @@ import { site } from '../data/site';
 interface Props {
 	title?: string;
 	description?: string;
+	/** Omite header e footer (ex.: cartão de visita) */
+	bare?: boolean;
 }
-const { title, description = site.description } = Astro.props;
+const { title, description = site.description, bare = false } = Astro.props;
 const fullTitle = title ? `${title} | ${site.name}` : site.name;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -33,10 +35,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 		<meta property="og:url" content={canonical} />
 	</head>
 	<body class="flex min-h-screen flex-col">
-		<Header />
+		{!bare && <Header />}
 		<main class="flex-1">
 			<slot />
 		</main>
-		<Footer />
+		{!bare && <Footer />}
 	</body>
 </html>
